@@ -1,4 +1,7 @@
 # HeroesApp
+App que muestra los diferentes héroes con su información, consumiendo el backend desde json server.
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
