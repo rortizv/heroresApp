@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Heroe } from '../interfaces/heroes.interface';
 import { environment } from '../../../environments/environment';
+import { HeroesRoutingModule } from '../heroes-routing.module';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class HeroesService {
 
   getHeroById( id: string ): Observable<Heroe> {
     return this.http.get<Heroe>(`${ this.baseUrl }/heroes/${ id }`);
+  }
+
+  getSugerencias( termino: string ): Observable<Heroe[]> {
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes?q=${termino}a&_limit=5`);
   }
   
 }
