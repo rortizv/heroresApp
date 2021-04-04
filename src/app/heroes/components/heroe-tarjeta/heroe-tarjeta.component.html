@@ -1,0 +1,33 @@
+<mat-card>
+
+  <mat-card-header>
+    <mat-card-title> {{element.superhero}} </mat-card-title>
+    <mat-card-subtitle> {{element.alter_ego}} </mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image [src]="element | imagen">
+
+  <mat-card-content>
+    <h3>{{element.publisher}}</h3>
+    <p>
+      <strong>First appearance on </strong> {{element.first_appearance}}
+      <br>
+      <strong>Characters: </strong> {{element.characters}}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button
+            color="accent"
+            [routerLink]="[ '/heroes', element.id ]">
+      See more...
+    </button>
+
+    <button mat-raised-button 
+            color="info"
+            [routerLink]="['/heroes/editar', element.id] ">
+      Edit
+    </button>
+
+  </mat-card-actions>
+</mat-card>
