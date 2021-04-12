@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 
 import { Heroe } from '../interfaces/heroes.interface';
 import { environment } from '../../../environments/environment';
-import { HeroesRoutingModule } from '../heroes-routing.module';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +24,18 @@ export class HeroesService {
 
   getSugerencias( termino: string ): Observable<Heroe[]> {
     return this.http.get<Heroe[]>(`${this.baseUrl}/heroes?q=${termino}a&_limit=5`);
+  }
+
+  saveHero ( heroe: Heroe ): Observable<Heroe> {
+    return this.http.post<Heroe>(`${this.baseUrl}/heroes`, heroe);
+  }
+
+  updateHero ( heroe: Heroe ): Observable<Heroe> {
+    return this.http.put<Heroe>(`${this.baseUrl}/heroes/${heroe.id}`, heroe);
+  }
+
+  deleteHero ( id: string ): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/heroes/${id}`);
   }
   
 }

@@ -31,7 +31,7 @@ export class HeroeComponent implements OnInit {
     .subscribe( heroe => this.heroe = heroe );
   }
 
-  regresar() {
+  goBack() {
     this.router.navigate(['/heroes/listado']);
   }
 

@@ -9,6 +9,10 @@ import { element } from 'protractor';
   mat-card {
     margin-top: 20px;
   }
+
+  .myEdit {
+    background-color: #61A4E8;
+  }
 `]
 })
 export class HeroeTarjetaComponent {

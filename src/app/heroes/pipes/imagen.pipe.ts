@@ -1,14 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { element } from 'protractor';
 import { Heroe } from '../interfaces/heroes.interface';
 
 @Pipe({
-  name: 'imagen'
+  name: 'imagen',
+  //pure: false
 })
 export class ImagenPipe implements PipeTransform {
 
   transform(element: Heroe ): string {
-    return `assets/heroes/${element.id}.jpg`;
+
+    if( !element.id && element.alt_img ) {
+      return 'assets/no-image.png';
+    } else if (element.alt_img) {
+      return element.alt_img;
+    } else {
+      return `assets/heroes/${ element.id }.jpg`;
+    }
+
   }
 
 }
